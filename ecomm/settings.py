@@ -6,11 +6,18 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config("SECRET_KEY")
 
+# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = ['eCommerce.herokuapp.com', 'www.vikasstore.com', 'localhost']
+
+# Application definition
 
 SITE_ID = 2
 
@@ -55,15 +62,12 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
         "AUTH_PARAMS": {"access_type": "online"}
     },
-
-    # Facebook authentication
     "facebook": {
         'APP': {
-            # Facebook API KEYS
             'client_id': SOCIAL_AUTH_FACEBOOK_KEY,
             'secret': SOCIAL_AUTH_FACEBOOK_SECRET,
         },
-        'METHOD': 'oauth2',  # Set to 'js_sdk' to use the Facebook connect SDK
+        'METHOD': 'oauth2',
         'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
         'SCOPE': ['email', 'public_profile'],
         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
@@ -87,6 +91,7 @@ SOCIALACCOUNT_PROVIDERS = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # WhiteNoise for serving static files in production
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -116,9 +121,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ecomm.wsgi.application'
 
-# Database configuration for Heroku
+# Database
+# If DATABASE_URL is not provided in .env, defaults to SQLite
 DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL'))
+    'default': dj_database_url.config(default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'))
 }
 
 # Password validation
@@ -143,20 +149,18 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Static files configuration for Heroku
+# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Additional static files directories for Heroku
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "public/media")]
 
-# Media files configuration
+# Media files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'public/media')
 MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Mail Configuration for Heroku
+# Mail Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -170,7 +174,7 @@ EMAIL_USE_SSL = False
 RAZORPAY_KEY_ID = config('RAZORPAY_KEY_ID')
 RAZORPAY_SECRET_KEY = config('RAZORPAY_SECRET_KEY')
 
-# Authentication Backends Configuration
+# Auth Backends Configurations
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
