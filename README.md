@@ -2,13 +2,13 @@
 
 <div align="center">
 
-[![GitHub issues](https://img.shields.io/github/issues/atulguptag/Django-eCommerce-Website?color=pink&logo=github)](https://github.com/atulguptag/Django-eCommerce-Website/issues)
+[![GitHub issues](https://img.shields.io/github/issues/yogender/Django-eCommerce-Website?color=pink&logo=github)](https://github.com/yogender/Django-eCommerce-Website/issues)
 
-![GitHub forks](https://img.shields.io/github/forks/atulguptag/Django-eCommerce-Website?logo=git)
-![GitHub Repo stars](https://img.shields.io/github/stars/atulguptag/Django-eCommerce-Website)
-[![Contributors](https://img.shields.io/github/contributors/atulguptag/Django-eCommerce-Website?style=plastic&?color=2b9348)](https://github.com/atulguptag/Django-eCommerce-Website/contributors)
+![GitHub forks](https://img.shields.io/github/forks/yogender/Django-eCommerce-Website?logo=git)
+![GitHub Repo stars](https://img.shields.io/github/stars/yogender/Django-eCommerce-Website)
+[![Contributors](https://img.shields.io/github/contributors/yogender/Django-eCommerce-Website?style=plastic&?color=2b9348)](https://github.com/yogender/Django-eCommerce-Website/contributors)
 [![Access Here](https://img.shields.io/badge/Access-Here-brightgreen?style=plastic)](https://djangoecommercewebsite.pythonanywhere.com/)
-![GitHub License](https://img.shields.io/github/license/atulguptag/Django-eCommerce-Website?style=plastic&link=https%3A%2F%2Fgithub.com%2Fatulguptag%2FDjango-eCommerce-Website%2Fblob%2Fmain%2FLICENSE)
+![GitHub License](https://img.shields.io/github/license/yogender/Django-eCommerce-Website?style=plastic&link=https%3A%2F%2Fgithub.com%2Fyogender%2FDjango-eCommerce-Website%2Fblob%2Fmain%2FLICENSE)
 
 </div>
 
@@ -115,7 +115,7 @@ To run this project locally, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/atulguptag/Django-eCommerce-Website.git
+   git clone https://github.com/yogender/Django-eCommerce-Website.git
    cd Django-eCommerce-Website
    ```
 
@@ -194,6 +194,11 @@ To run this project locally, follow these steps:
 
 - Now, you are ready to rock 🎉🤘🏻
 
+
+cd eCommerce
+venv\Scripts\activate
+python manage.py runserver
+
 ## Usage
 
 - **Admin Panel:** Access the admin panel at `http://127.0.0.1:8000/admin/` to manage products, orders, and users.
@@ -204,10 +209,3 @@ To run this project locally, follow these steps:
 
 Contributions are welcome! Please fork this repository and create a pull request with your proposed features, enhancements, or bug fixes.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## 💰 You can help me by Donating. Any small amount will help me to create more projects like this in future 😀. Otherwise, it is not necessary.
-
-[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/atulguptaa)
